@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = etPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đầy đủ email và mật khẩu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "enter Email and password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -32,17 +32,17 @@ class RegisterActivity : AppCompatActivity() {
             apiService.register(request).enqueue(object : Callback<AuthResponse> {
                 override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
                     if (response.isSuccessful) {
-                        Toast.makeText(this@RegisterActivity, "Đăng ký thành công! Vui lòng đăng nhập.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@RegisterActivity, "Registration successful! Please login.", Toast.LENGTH_LONG).show()
                         finish() // Đóng màn hình đăng ký và quay lại màn hình đăng nhập
                     } else {
                         // Cố gắng đọc thông báo lỗi từ server
-                        val errorMsg = response.body()?.error ?: "Đã có lỗi xảy ra"
-                        Toast.makeText(this@RegisterActivity, "Lỗi: $errorMsg", Toast.LENGTH_LONG).show()
+                        val errorMsg = response.body()?.error ?: "Error"
+                        Toast.makeText(this@RegisterActivity, "error: $errorMsg", Toast.LENGTH_LONG).show()
                     }
                 }
 
                 override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
-                    Toast.makeText(this@RegisterActivity, "Lỗi mạng: ${t.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@RegisterActivity, "connection error: ${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
         }

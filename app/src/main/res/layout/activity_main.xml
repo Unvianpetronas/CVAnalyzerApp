@@ -14,7 +14,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tải CV lên để phân tích"
+                android:text="Up load file to analyze"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="24dp"/>
@@ -23,14 +23,14 @@
                 android:id="@+id/btnSelectFile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chọn tệp CV (.pdf)"/>
+                android:text="chosse CV (.pdf)"/>
 
         <TextView
                 android:id="@+id/tvFileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Chưa có tệp nào được chọn"/>
+                android:text="No file selected"/>
 
         <ProgressBar
                 android:id="@+id/progressBar"
@@ -46,6 +46,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:text="Đăng xuất"/>
+            android:text="Logout"/>
 
 </RelativeLayout>

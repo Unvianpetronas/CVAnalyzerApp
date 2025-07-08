@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đầy đủ email và mật khẩu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "please enter email and password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -50,13 +50,13 @@ class LoginActivity : AppCompatActivity() {
                         sessionManager.saveAuthToken(token)
                         goToMainActivity()
                     } else {
-                        val errorMsg = response.body()?.error ?: "Email hoặc mật khẩu không đúng"
+                        val errorMsg = response.body()?.error ?: "Email or password not correct"
                         Toast.makeText(this@LoginActivity, "Lỗi: $errorMsg", Toast.LENGTH_LONG).show()
                     }
                 }
 
                 override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
-                    Toast.makeText(this@LoginActivity, "Lỗi mạng: ${t.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@LoginActivity, "connection error: ${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
         }

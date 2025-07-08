@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         inputStream?.close()
 
         if (requestBody == null) {
-            showError("Không thể đọc được nội dung tệp.")
+            showError("cannot read file.")
             resetUI()
             return
         }
@@ -78,13 +78,13 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     showResultDialog(response.body())
                 } else {
-                    showError("Lỗi từ server: ${response.code()}. Có thể token đã hết hạn, vui lòng đăng nhập lại.")
+                    showError(" server error : ${response.code()}. token is expired, please try again.")
                 }
                 resetUI()
             }
 
             override fun onFailure(call: Call<CvAnalysisResult>, t: Throwable) {
-                showError("Lỗi kết nối mạng: ${t.message}")
+                showError("connection error: ${t.message}")
                 resetUI()
             }
         })
@@ -92,24 +92,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun showResultDialog(result: CvAnalysisResult?) {
         if (result == null) {
-            showError("Không nhận được kết quả hợp lệ.")
+            showError("No valid results received.")
             return
         }
         val message = """
-        Điểm số: ${result.score ?: "N/A"}/100
+        Score: ${result.score ?: "N/A"}/100
 
-        Điểm mạnh:
-        ${result.strengths ?: "Không có"}
+        Strengths:
+        ${result.strengths ?: "Do not have"}
 
-        Cần cải thiện:
-        ${result.weaknesses ?: "Không có"}
+        Weaknesses:
+        ${result.weaknesses ?: "Do not have"}
 
-        Các kỹ năng được phát hiện: 
-        ${result.detected_skills?.joinToString(", ") ?: "Không có"}
+        Detected skills: 
+        ${result.detected_skills?.joinToString(", ") ?: "Do not have"}
         """.trimIndent()
 
         AlertDialog.Builder(this)
-            .setTitle("Kết quả Phân tích CV")
+            .setTitle("Result")
             .setMessage(message)
             .setPositiveButton("OK", null)
             .show()
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
     private fun resetUI() {
         progressBar.visibility = View.GONE
         btnSelectFile.isEnabled = true
-        tvFileName.text = "Chưa có tệp nào được chọn"
+        tvFileName.text = "No files selected yet"
     }
 
     private fun getFileName(uri: Uri): String {

@@ -12,7 +12,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tạo tài khoản mới"
+            android:text="New Account"
             android:textSize="32sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="Mật khẩu"
+                    android:hint="Password"
                     app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:paddingVertical="14dp"
-                    android:text="Đăng ký"
+                    android:text="Register"
                     android:textSize="16sp"
                     app:cornerRadius="8dp" />
 
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:padding="8dp"
-            android:text="Đã có tài khoản? Đăng nhập"
+            android:text="Already have? Login"
             android:textColor="@color/purple_700"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
