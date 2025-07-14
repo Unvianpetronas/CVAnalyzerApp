@@ -23,7 +23,7 @@
                 android:id="@+id/btnSelectFile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="chosse CV (.pdf)"/>
+                android:text="chosse CV (.pdf,Native PDF)"/>
 
         <TextView
                 android:id="@+id/tvFileName"

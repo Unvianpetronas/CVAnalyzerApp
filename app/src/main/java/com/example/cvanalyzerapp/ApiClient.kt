@@ -7,9 +7,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    // <<<< CỰC KỲ QUAN TRỌNG >>>>
     // THAY ĐỔI ĐỊA CHỈ IP NÀY BẰNG ĐỊA CHỈ IP CỦA BACKEND
-    private const val BASE_URL = "http://192.168.1.201:5001"
+    private const val BASE_URL = "http://10.1.148.214:5001"
 
     fun getRetrofitInstance(context: Context): Retrofit {
         val sessionManager = SessionManager(context)
