@@ -1,10 +1,72 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# =================================================================
+# === TỆP TIN NHẠY CẢM VÀ CẤU HÌNH MÔI TRƯỜNG
+# =================================================================
+# Tệp chứa các biến môi trường (API keys, mật khẩu database,...)
+# Rất quan trọng: Không bao giờ push tệp này lên GitHub!
+.env
+local.properties
 
-### STS ###
+# Tệp chứa khóa ký ứng dụng (signing keys)
+# Rất quan trọng: Mất tệp này bạn sẽ không thể cập nhật ứng dụng trên Google Play!
+*.keystore
+*.jks
+
+# =================================================================
+# === QUY TẮC CHO DỰ ÁN ANDROID (FRONTEND)
+# =================================================================
+# Thư mục build chứa các tệp tin được biên dịch và các tệp APK/AAB
+/build
+
+# Thư mục do Gradle tạo ra để lưu cache
+.gradle
+
+# Các tệp cấu hình riêng của Android Studio và IntelliJ
+.idea/
+*.iml
+
+# Các tệp ứng dụng đã được biên dịch
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Tệp tin từ NDK (Native Development Kit)
+/obj/
+/libs/
+/jni/prebuilt/
+/jni/obj/
+/jni/bin/
+/gen/
+/bin/
+
+# Thư mục chứa các bản ghi màn hình/hiệu năng từ Android Studio
+captures/
+.cxx/
+
+# =================================================================
+# === QUY TẮC CHO DỰ ÁN JAVA/MAVEN (BACKEND)
+# (Giữ lại và tối ưu từ file của bạn)
+# =================================================================
+
+# Tệp và thư mục do Maven tạo ra
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Log files
+*.log
+
+# =================================================================
+# === QUY TẮC CHO CÁC IDE
+# =================================================================
+
+### STS / Eclipse ###
 .apt_generated
 .classpath
 .factorypath
@@ -12,13 +74,6 @@ target/
 .settings
 .springBeans
 .sts4-cache
-.env
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
 
 ### NetBeans ###
 /nbproject/private/
@@ -26,11 +81,7 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# Ghi chú: Các quy tắc cho IntelliJ IDEA (*.iml, .idea/) đã được gộp chung
+# vào phần Android ở trên vì Android Studio được xây dựng trên nền tảng IntelliJ.
 
-/Doanlesg/frontend/node_modules
